@@ -18,7 +18,7 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-401f.up.railway.app'
+    'https://wc-production-8c95.up.railway.app'
 ]
 
 # Quick-start development settings - unsuitable for production
