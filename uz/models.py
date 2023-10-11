@@ -28,8 +28,8 @@ class uzText(models.Model):
         return "{}".format(self.book_title)
     
     class Meta:
-        verbose_name = "Текст на узбекском"
-        verbose_name_plural = "Тексты на узбекском"
+        verbose_name = "Ўзбек тилидаги матнлар"
+        verbose_name_plural = "Ўзбек тилидаги матнлар"
 
 class FreqWord(models.Model):
     freq_words = models.TextField(null=True, blank=True,verbose_name='Кўп ишлатиладиган сўзларин')
