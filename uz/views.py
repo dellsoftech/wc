@@ -389,88 +389,88 @@ class IndexView(View):
 
             if (words_q <= g1_word_q_l3 and  sentence_q <= g1_sentence_q_l3 and syllables_avg <= g1_avgwl_insyllables_l3 and sentence_avg <= g1_avgl_sentences_inw_l3 ) or (words_q <= g1_word_q_l3 and  sentence_q > g1_sentence_q_l3 and syllables_avg <= g1_avgwl_insyllables_l3 and sentence_avg <= g1_avgl_sentences_inw_l3 ):
                     
-                    level_result = "1 класс"
+                    level_result = "1 синф "
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
             
             elif (words_q <= g1_word_q_l3 and  sentence_q <= g1_sentence_q_l3 and syllables_avg >= g1_avgwl_insyllables_l3 and sentence_avg <= g1_avgl_sentences_inw_l3):
                  
-                    level_result = "1 класс: текстти  текшериш керек"
+                    level_result = "1 синф : текстти  текшериш керек"
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.error(request, 'жүктөлдү')
+                    messages.error(request, 'юклади')
             
             elif (words_q <= g1_word_q_l3 and  sentence_q <= g1_sentence_q_l3 and syllables_avg <= g1_avgwl_insyllables_l3 and sentence_avg > g1_avgl_sentences_inw_l3):
                  
-                    level_result = "1 класс: текстти текшериш керек. Сүйлөмдүрдүн орточо узундугу сөздөр менен " + str(sentence_avg)
+                    level_result = "1 синф : матнни текширишимиз керак.Сўзлардаги ўртача жумла узунлиги" + str(sentence_avg)
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
             
 
            
             elif (words_q > g1_word_q_l3 and words_q <= g2_word_q_l2 and  sentence_q > g1_sentence_q_l3 and sentence_q <= g2_sentence_q_l2  and sentence_avg > g1_avgl_sentences_inw_l3  and sentence_avg <= g2_avgl_sentences_inw_l2) or (words_q < g2_word_q_l1 and  sentence_q < g2_sentence_q_l1  and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and  sentence_avg > g1_avgl_sentences_inw_l3  and sentence_avg <= g2_avgl_sentences_inw_l2 and multisyllabic_wq > g1_multisyllabic_wq_l3 and multisyllabic_wq <=g2_multisyllabic_wq_l2) or (words_q < g2_word_q_l1 and  sentence_q < g2_sentence_q_l1  and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and  sentence_avg > g1_avgl_sentences_inw_l3  and sentence_avg <= g2_avgl_sentences_inw_l2 and multisyllabic_wq < g2_multisyllabic_wq_l2 and rareword_q > g1_rarew_q_l3 and rareword_q <= g2_rarew_q_l2 ) or (words_q < g2_word_q_l1 and  sentence_q < g2_sentence_q_l1  and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and  sentence_avg > g1_avgl_sentences_inw_l3  and sentence_avg <= g2_avgl_sentences_inw_l2) or (words_q > g1_word_q_l3 and words_q <= g2_word_q_l2 and  sentence_q < g2_sentence_q_l1  and  sentence_avg > g1_avgl_sentences_inw_l3  and sentence_avg <= g2_avgl_sentences_inw_l2 and rareword_q > g1_rarew_q_l3 and rareword_q <= g2_rarew_q_l2) or (words_q > g1_word_q_l3 and words_q <= g2_word_q_l2 and  sentence_q > g1_sentence_q_l3 and sentence_q <= g2_sentence_q_l2 and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2  and  sentence_avg > g2_avgl_sentences_inw_l2):
                     
-                    level_result = "2 класс"
+                    level_result = "2 синф "
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
 
             
             elif (words_q < g2_word_q_l2  and  sentence_q < g2_sentence_q_l2 and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and sentence_avg > g1_avgl_sentences_inw_l3 and sentence_avg <= g2_avgl_sentences_inw_l2 and compound_w_q > g1_compw_q_l3 and compound_w_q <= g2_compw_q_l2 ) or (words_q > g1_word_q_l3 and words_q <= g2_word_q_l2  and  sentence_q >= g2_sentence_q_l2 and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and sentence_avg <= g2_avgl_sentences_inw_l2 and compound_w_q <= g2_compw_q_l2 ) or (words_q > g2_word_q_l2  and  sentence_q > g2_sentence_q_l2 and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and sentence_avg <= g2_avgl_sentences_inw_l2 and compound_w_q <= g2_compw_q_l2 ) or (words_q > g1_word_q_l3 and words_q <= g2_word_q_l2  and  sentence_q > g2_sentence_q_l2 and syllables_avg > g1_avgwl_insyllables_l3 and syllables_avg <= g2_avgwl_insyllables_l2 and sentence_avg > g1_avgl_sentences_inw_l3 and sentence_avg <= g2_avgl_sentences_inw_l2 and multisyllabic_wq > g1_multisyllabic_wq_l3 and multisyllabic_wq <= g2_multisyllabic_wq_l2 ):
                     
-                    level_result = "2 класс: текстти  текшериш керек"
+                    level_result = "2 синф : матнни текширишимиз керак"
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
 
 
             elif (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2  and sentence_avg > g2_avgl_sentences_inw_l2  and sentence_avg <= g3_avgl_sentences_inw_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q <= g3_compw_q_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2  and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and sentence_avg > g2_avgl_sentences_inw_l2  and sentence_avg <= g3_avgl_sentences_inw_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2 and rareword_q > g2_rarew_q_l2 and rareword_q <= g3_rarew_q_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and rareword_q > g2_rarew_q_l2 and rareword_q <= g3_rarew_q_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and  syllables_avg < g3_avgwl_insyllables_l1 and sentence_avg > g3_avgl_sentences_inw_l2 and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q <= g3_compw_q_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and  syllables_avg < g3_avgwl_insyllables_l1 and sentence_avg > g2_avgl_sentences_inw_l2 and sentence_avg <= g3_avgl_sentences_inw_l2   and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2 and  syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q <= g3_compw_q_l2):
                     
-                    level_result = "3 класс"
+                    level_result = "3 синф "
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
             
             elif (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g2_sentence_q_l2 and sentence_q <= g3_sentence_q_l2  and sentence_avg > g2_avgl_sentences_inw_l2  and sentence_avg <= g3_avgl_sentences_inw_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q > g3_compw_q_l2) or (words_q < g2_word_q_l2  and  sentence_q < g2_sentence_q_l2  and sentence_avg > g2_avgl_sentences_inw_l2  and sentence_avg <= g3_avgl_sentences_inw_l2 and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2 ) or (words_q > g3_word_q_l2 and  sentence_q > g3_sentence_q_l2  and sentence_avg > g2_avgl_sentences_inw_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and sentence_avg <= g3_avgl_sentences_inw_l2 and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q <= g3_compw_q_l2) or (words_q < g3_word_q_l1 and  sentence_q < g3_sentence_q_l1  and sentence_avg > g2_avgl_sentences_inw_l2 and sentence_avg <= g3_avgl_sentences_inw_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2 and compound_w_q > g2_compw_q_l2 and compound_w_q <= g3_compw_q_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q < g3_sentence_q_l1 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2  and sentence_avg > g3_avgl_sentences_inw_l2  and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2) or (words_q > g2_word_q_l2 and words_q <= g3_word_q_l2 and  sentence_q > g3_sentence_q_l2 and syllables_avg > g2_avgwl_insyllables_l2 and syllables_avg <= g3_avgwl_insyllables_l2  and multisyllabic_wq > g2_multisyllabic_wq_l2 and multisyllabic_wq <= g3_multisyllabic_wq_l2):
                     
-                    level_result = "3 класс: текстти  текшериш керек"
+                    level_result = "3 синф : матнни текширишимиз керак"
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
             
             elif (words_q > g3_word_q_l2 and words_q >= g4_word_q_l2 and  sentence_q > g3_sentence_q_l2 and sentence_q >= g4_sentence_q_l2) or ( compound_w_q > g3_compw_q_l2 and compound_w_q >= g4_compw_q_l2 and rareword_q > g3_rarew_q_l2 and rareword_q >= g4_rarew_q_l2) or (words_q > g3_word_q_l2 and  sentence_q > g3_sentence_q_l2 and multisyllabic_wq > g3_multisyllabic_wq_l2 and rareword_q >= g3_rarew_q_l2) or (words_q > g3_word_q_l2 and  sentence_q > g3_sentence_q_l2 and syllables_avg > g3_avgwl_insyllables_l2 and multisyllabic_wq > g3_multisyllabic_wq_l2) or (words_q > g3_word_q_l2 and  sentence_q > g3_sentence_q_l2 and compound_w_q > g3_compw_q_l2 and rareword_q > g3_rarew_q_l2) or (words_q > g3_word_q_l2 and  sentence_q > g3_sentence_q_l1 and sentence_q < g4_sentence_q_l1 and sentence_avg > g3_avgl_sentences_inw_l2 and compound_w_q > g3_compw_q_l2 and rareword_q > g3_rarew_q_l2):
                     
-                    level_result = "4 класс"
+                    level_result = "4 синф "
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
 
             elif (words_q > g3_word_q_l1  and words_q < g4_word_q_l1 and  sentence_q > g3_sentence_q_l1 and sentence_q < g4_sentence_q_l1 and syllables_avg > g3_avgwl_insyllables_l2 and multisyllabic_wq > g3_multisyllabic_wq_l2 and rareword_q > g3_rarew_q_l2) or (words_q > g3_word_q_l2  and sentence_q > g3_sentence_q_l2 and multisyllabic_wq > g3_multisyllabic_wq_l2 and compound_w_q > g3_compw_q_l2 and  rareword_q < g4_rarew_q_l1):
                     
-                    level_result = "4 класс: текстти  текшериш керек"
+                    level_result = "4 синф : матнни текширишимиз керак"
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
-                    messages.info(request, 'жүктөлдү')
+                    messages.info(request, 'юклади')
 
             
             else:
-                    level_result = "Текст  " + str(words_q)+ " сөздөн турат" + " бирок кайра текшерилиши керек ..."
+                    level_result = "Матн   " + str(words_q)+ " сўздан иборат" + " иккинчи текшириш талаб қилинади..."
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
                     
-                    messages.error(request, 'текшерилиш керек')
+                    messages.error(request, 'текшириш талаб қилинади')
 
 
 
@@ -500,7 +500,7 @@ class IndexView(View):
         
         
         else:
-                messages.error(request, 'Туура эмес: Кыргызча текст жүктөгүлө!!!')
+                messages.error(request, 'Нотўғри: матн юкланмаган!!!')
         
         next = request.POST.get('next', '/')
         return HttpResponseRedirect(next)
