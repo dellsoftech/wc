@@ -28,9 +28,9 @@ CSRF_TRUSTED_ORIGINS = [
 SECRET_KEY = 'django-insecure-e*+je+$5hnt^=i#vd77k31j-euzrhorks*3__o1+4&q^f8k!bt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['wc-production-8c95.up.railway.app']
 
 
 # Application definition
@@ -96,6 +96,16 @@ DATABASES = {
 }
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
