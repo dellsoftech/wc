@@ -405,7 +405,7 @@ class IndexView(View):
             
             elif (words_q <= g1_word_q_l3 and  sentence_q <= g1_sentence_q_l3 and syllables_avg <= g1_avgwl_insyllables_l3 and sentence_avg > g1_avgl_sentences_inw_l3):
                  
-                    level_result = "1 синф : матнни текширишимиз керак.Сўзлардаги ўртача жумла узунлиги" + str(sentence_avg)
+                    level_result = "1 синф : матнни текширишимиз керак.Сўзлардаги ўртача жумла узунлиги " + str(sentence_avg)
                     book = uzText(grade = grade, book_title=title, book_author=author,book_text=message, sentence_q=sentence_q, words_q=words_q, syllables_avg=syllables_avg, sentence_avg=sentence_avg, multisyllabic_wq=multisyllabic_wq, compound_w_q=compound_w_q, 
                                 rareword_q=rareword_q, rareword_p=rareword_p, fw_q=fw_q, fw_p=fw_p, uniq_w=uniquew_q, lexical_div=lexical_d, level_result=level_result, all_compound_words_p = all_compound_words_p, complex_w_q=complex_w_q)
                     book.save()
