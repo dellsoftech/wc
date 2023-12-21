@@ -89,9 +89,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '4Vt3OvcoCtbmES4zPdXw',
-        'HOST': 'containers-us-west-152.railway.app',
-        'PORT': '7008',
+        'PASSWORD': 'acg4*1*e5BFD2C35b2c33C*613Bd*2-b',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '16543',
     }
 }
 prod_db  =  dj_database_url.config(conn_max_age=500)
