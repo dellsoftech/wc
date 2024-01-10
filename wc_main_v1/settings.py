@@ -17,10 +17,6 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://wc-nu.vercel.app'
-    
-]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -31,7 +27,7 @@ SECRET_KEY = 'django-insecure-e*+je+$5hnt^=i#vd77k31j-euzrhorks*3__o1+4&q^f8k!bt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wc-nu.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
